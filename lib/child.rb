@@ -7,8 +7,12 @@ class Child
   end
 
   def fetch_coke(resource)
-    resource.has_coke = false
-    @has_coke = true
+    if resource.has_coke?
+      resource.has_coke = false
+      @has_coke = true
+    else
+      raise 'There is no coke'
+    end
   end
 
   def has_coke?
